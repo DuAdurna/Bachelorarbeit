@@ -53,9 +53,12 @@ while zahldauer <Dauer
         for p=1:n
             plotdata(2,nJumps+1)=plotdata(2,nJumps+1)+Netzwerk_final.Nodes.Meinungen{p}/n;
             plotdata(p+3,nJumps+1)=Netzwerk_final.Nodes.Meinungen{p};
-            for j=1:n
+            for j=1:n %varianz errechnen
                 plotdata(3,nJumps+1)=plotdata(3,nJumps+1)+1/(2*n^2)*abs(Netzwerk_final.Nodes.Meinungen{p}-Netzwerk_final.Nodes.Meinungen{j})^2;
             end
+        end
+        if plotdata(3,nJumps+1)==0
+            Dauer=-inf;
         end
         plotdata(1,nJumps+1)=zahldauer;
     else
