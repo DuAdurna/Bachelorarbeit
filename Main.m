@@ -29,12 +29,12 @@ lamda2=sort(EigVal(:));
 lamda2=lamda2(2);
 %% Testet deterministisches Modell 
 Gd = digraph(Netzwerk);
-Gd.Nodes.Meinungen=MeinungenD;
-[Gd,plotdataD]=MeinungVerbreitenD(Gd,10,0,0,0);
+Gd.Nodes.Meinungen=Meinungen;
+[Gd,plotdataD]=MeinungVerbreitenD(Gd,15,0,0,0.5);
 %% Testet stochastisches Modell 
 Gs = digraph(Netzwerk);
-Gs.Nodes.Meinungen=MeinungenS;
-[Gs,plotdataS]=MeinungVerbreitenS(Gs,100,0);
+Gs.Nodes.Meinungen=Meinungen;
+[Gs,plotdataS]=MeinungVerbreitenS(Gs,15,0);
 %% Zeichnen und Einfärben des Graphen
 Zeichnung(Netzwerk, Meinungen, Gd, plotdataD, Gs, plotdataS);
 %%

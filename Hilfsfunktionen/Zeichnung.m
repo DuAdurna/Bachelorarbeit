@@ -58,10 +58,9 @@ title('Deterministische Simulation')
 
 subplot(2,3,3);
 for i=1:n
-   hold on
    plot(plotdataD(1,:),plotdataD(i+2,:),'-', 'Linewidth', 2);
+    hold on
 end
-hold on
 plot(plotdataD(1,:),plotdataD(2,:),'--');
 hold off
 title('Verlauf der Meinungen')
