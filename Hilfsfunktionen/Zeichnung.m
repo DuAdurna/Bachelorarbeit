@@ -58,7 +58,7 @@ title('Deterministische Simulation')
 
 subplot(2,3,3);
 for i=1:n
-   plot(plotdataD(1,:),plotdataD(i+2,:),'-', 'Linewidth', 2);
+   plot(plotdataD(1,:),plotdataD(i+3,:),'-', 'Linewidth', 2);
     hold on
 end
 plot(plotdataD(1,:),plotdataD(2,:),'--');

@@ -12,20 +12,27 @@ NTemp=Netzwerk;
 %normieren der Kantengewichte, sodass sie maximal 1 betragen
 NTemp.Edges.Weight(:)=NTemp.Edges.Weight(:)/max(NTemp.Edges.Weight(:));
 %plotdatas initialisieren
-plotdata=zeros(n,1);
+plotdata=zeros(n+3,1);
 for j=1:n
     plotdata(2,1)=plotdata(2,1)+(NTemp.Nodes.Meinungen{j})./n;
-    plotdata(j+2,1)=NTemp.Nodes.Meinungen{j};
+    plotdata(j+3,1)=NTemp.Nodes.Meinungen{j};
+    for i=1:n %varianz errechnen
+       plotdata(3,1)=plotdata(3,1)+1/(2*n^2)*abs(NTemp.Nodes.Meinungen{j}-NTemp.Nodes.Meinungen{i})^2;
+    end
 end
 for i=1:floor(Dauer/Schrittdauer)
     %simulationsschritt gehen
     NTemp=MeinungsSchritt(NTemp,Selbsterhalt,Schrittdauer);
     %plotdata erstellen
-    plotdata(:,i+1)=zeros(n+2,1);
+    plotdata(:,i+1)=zeros(n+3,1);
     for p=1:n
         plotdata(2,i+1)=plotdata(2,i+1)+(NTemp.Nodes.Meinungen{p})./n;
-        plotdata(p+2,i+1)=NTemp.Nodes.Meinungen{p};
+        plotdata(p+3,i+1)=NTemp.Nodes.Meinungen{p};    
+        for j=1:n %varianz errechnen
+            plotdata(3,i+1)=plotdata(3,i+1)+1/(2*n^2)*abs(NTemp.Nodes.Meinungen{p}-NTemp.Nodes.Meinungen{j})^2;
+        end
     end
+
     plotdata(1,i+1)=i*Schrittdauer;
     %evtl Netzwerk mutieren
     if mutationsKoef~=0
