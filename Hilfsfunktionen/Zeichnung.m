@@ -1,6 +1,6 @@
 function []=Zeichnung(Netzwerk, Meinungen, Gd, plotdataD, Gs, plotdataS)
 %ZEICHNUNG erstellt einen Plot der Meinungsausbreitungsmodelle
-%   Der plot besteht aus 5 Subplots in einem 2x3 Grid, mit jeweils dem
+%   Der plot besteht aus 6 Subplots in einem 2x3 Grid, mit jeweils dem
 %   Endergebnis und dem Verlauf der druchschnittlichen Meinung
 n=size(Gd.Nodes,1);
 
@@ -32,11 +32,13 @@ title('Statistische Simulation')
 
 subplot(2,3,5);
 stairs(plotdataS(1,:),plotdataS(2,:),'-','Linewidth',2);
+%den nächsten Teil auskommentieren falls man die einzelnen Verläufe nicht sehen will
 for i=1:n
    hold on
-   stairs(plotdataS(1,:),plotdataS(i+2,:),'-','Linewidth',0.5);
+   stairs(plotdataS(1,:),plotdataS(i+3,:),'-','Linewidth',0.5);
 end
 hold off
+% bis hier her 
 title('Verlauf der Meinungen')
 
 
@@ -58,7 +60,7 @@ title('Deterministische Simulation')
 
 subplot(2,3,3);
 for i=1:n
-   plot(plotdataD(1,:),plotdataD(i+3,:),'-', 'Linewidth', 2);
+   plot(plotdataD(1,:),plotdataD(i+3,:),'-', 'Linewidth', 1);
     hold on
 end
 plot(plotdataD(1,:),plotdataD(2,:),'--');

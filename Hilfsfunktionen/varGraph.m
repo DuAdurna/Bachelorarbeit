@@ -7,7 +7,7 @@ tGr=Startgraph;
 if type=='a'
     failcount=0;
     reroll=true;
-    while reroll && failcount<100 %failcount sichert nur, dass hier keine endlosschleife Läuft
+    while reroll && failcount<1000 %failcount sichert nur, dass hier keine endlosschleife Läuft
         i=randi(n);
         j=randi(n); 
         failcount=failcount+1;
