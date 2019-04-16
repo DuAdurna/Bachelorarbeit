@@ -8,7 +8,7 @@ tGr=Startgraph;
 failcount=0;
 reroll=true;
 while reroll && failcount<1000
-    i=randi(12);
+    i=randi(6);
     j=randi(n-12)+12;
     failcount=failcount+1;
     if findedge(tGr,i,j)==0 && i~=j
