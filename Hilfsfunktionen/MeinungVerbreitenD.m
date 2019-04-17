@@ -35,20 +35,20 @@ for i=1:floor(Dauer/Schrittdauer)
     plotdata(1,i+1)=i*Schrittdauer;
     
     %evtl Netzwerk mutieren
-    %     if mutationsKoef~=0
-    %         p=rand;
-    %         if p<mutationsKoef*Schrittdauer/2
-    %             NTemp=varGraph(NTemp,'a');
-    %         elseif p>(1-mutationsKoef*Schrittdauer/2)
-    %             NTemp=varGraph(NTemp,'r');
-    %         end
-    %     end
+    if mutationsKoef~=0
+        p=rand;
+        if p<mutationsKoef*Schrittdauer/2
+            NTemp=varGraph(NTemp,'a');
+        elseif p>(1-mutationsKoef*Schrittdauer/2)
+            NTemp=varGraph(NTemp,'r');
+        end
+    end
     
     %Figur 8 Mutation, sollte normalerweise auskommentiert sein!
-    p=rand;
-    if p<mutationsKoef*Schrittdauer
-        NTemp=varGraphMod(NTemp);
-    end
+    %     p=rand;
+    %     if p<mutationsKoef*Schrittdauer
+    %         NTemp=varGraphMod(NTemp);
+    %     end
     
 end
 Meinungen_Neu=NTemp;
