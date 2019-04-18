@@ -30,16 +30,38 @@ lamda2=lamda2(2);
 %% Testet deterministisches Modell 
 Gd = digraph(Netzwerk);
 Gd.Nodes.Meinungen=Meinungen;
-[Gd,plotdataD]=MeinungVerbreitenD(Gd,15,0,0,0.5);
+[Gd,plotdataD]=MeinungVerbreitenD(Gd,25,0,0,1);
 %% Testet stochastisches Modell 
 Gs = digraph(Netzwerk);
 Gs.Nodes.Meinungen=Meinungen;
-[Gs,plotdataS]=MeinungVerbreitenS(Gs,15,0);
+[Gs,plotdataS]=MeinungVerbreitenS(Gs,10,0);
 %% Zeichnen und Einfärben des Graphen
 Zeichnung(Netzwerk, Meinungen, Gd, plotdataD, Gs, plotdataS);
-%%
-
-
-
-
-
+%% 10facher durschschnitt für figur 9
+Gs = digraph(Netzwerk);
+Gs.Nodes.Meinungen=MeinungenCopy;
+Gs.Edges.Weight(7) = 1;
+Gs.Edges.Weight(8) = 1;
+Gs.Edges.Weight(9) = 1;
+Gs.Edges.Weight(10) = 1;
+Gs.Edges.Weight(11) = 1;
+Gs.Edges.Weight(12) = 1;
+Gs.Edges.Weight(1) = 1;
+Gs.Edges.Weight(2) = 1;
+Gs.Edges.Weight(3) = 1;
+Gs.Edges.Weight(4) = 1;
+Gs.Edges.Weight(5) = 1;
+Gs.Edges.Weight(6) = 1;
+[~,plotdataS0]=MeinungVerbreitenS(Gs,1,0); 
+[~,plotdataS1]=MeinungVerbreitenS(Gs,10,0);
+[~,plotdataS2]=MeinungVerbreitenS(Gs,10,0);
+[~,plotdataS3]=MeinungVerbreitenS(Gs,10,0);
+[~,plotdataS4]=MeinungVerbreitenS(Gs,10,0);
+[~,plotdataS5]=MeinungVerbreitenS(Gs,10,0);
+[~,plotdataS6]=MeinungVerbreitenS(Gs,10,0);
+[~,plotdataS7]=MeinungVerbreitenS(Gs,10,0);
+[~,plotdataS8]=MeinungVerbreitenS(Gs,10,0);
+[Gs,plotdataS9]=MeinungVerbreitenS(Gs,10,0);
+average=(plotdataS0(:,end)+plotdataS1(:,end)+plotdataS2(:,end)+plotdataS3(:,end)+plotdataS4(:,end)+...
+    plotdataS5(:,end)+plotdataS6(:,end)+plotdataS7(:,end)+plotdataS8(:,end)+plotdataS9(:,end))./10;
+%% 
