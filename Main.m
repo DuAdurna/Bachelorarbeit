@@ -38,6 +38,7 @@ Gs.Nodes.Meinungen=Meinungen;
 %% Zeichnen und Einfärben des Graphen
 Zeichnung(Netzwerk, Meinungen, Gd, plotdataD, Gs, plotdataS);
 %% 10-facher Durschschnitt für Figur 9
+Bild9;Netzwerk=Figur9;
 load('./Data/MeinungenStart.mat');
 Gs = digraph(Netzwerk);
 Gs.Nodes.Meinungen=MeinungenCopy;
