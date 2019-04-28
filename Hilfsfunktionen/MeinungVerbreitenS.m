@@ -18,19 +18,19 @@ while zahldauer <Dauer
     %lässt veränderung des Graphen zu während der Meinungsverbreitung da
     %dies nach jeder Meinungsveränderung gerufen wird hängt dies auch
     %indirekt von n und der Volatilität des Netzwerks zusammen
-%     if mutationsKoef~=0
-%         p=rand;
-%         if p<mutationsKoef*1/2
-%             NTemp=varGraph(NTemp,'a');
-%         elseif p>(1-mutationsKoef/2)
-%             NTemp=varGraph(NTemp,'r');
-%         end
-%     end
-    %variation für das Beispiel von Figur 9, sollte im Noramlfall auskommentiert sein!
-    p=rand;
-    if p<mutationsKoef
-        NTemp=varGraphMod(NTemp);
+    if mutationsKoef~=0
+        p=rand;
+        if p<mutationsKoef*1/2
+            NTemp=varGraph(NTemp,'a');
+        elseif p>(1-mutationsKoef/2)
+            NTemp=varGraph(NTemp,'r');
+        end
     end
+    %variation für das Beispiel von Figur 9, sollte im Noramlfall auskommentiert sein!
+%     p=rand;
+%     if p<mutationsKoef
+%         NTemp=varGraphMod(NTemp);
+%     end
     
     %lambda der Poisson-Prozesse/Exponentialverteilungen errechnen
     Lambda=NaN(n, n);

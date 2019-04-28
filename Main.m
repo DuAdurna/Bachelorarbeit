@@ -37,49 +37,36 @@ Gs.Nodes.Meinungen=Meinungen;
 [Gs,plotdataS]=MeinungVerbreitenS(Gs,10,0.025);
 %% Zeichnen und Einfärben des Graphen
 Zeichnung(Netzwerk, Meinungen, Gd, plotdataD, Gs, plotdataS);
-%% 10facher durschschnitt für figur 9
+%% 10-facher Durschschnitt für Figur 9
 Gs = digraph(Netzwerk);
 Gs.Nodes.Meinungen=MeinungenCopy;
+%Kanten der isolierten Blöcke zum absorbierenden hin
+%Rot
 Gs.Edges.Weight(7) = 1;
 Gs.Edges.Weight(8) = 1;
 Gs.Edges.Weight(9) = 1;
 Gs.Edges.Weight(10) = 1;
 Gs.Edges.Weight(11) = 1;
 Gs.Edges.Weight(12) = 1;
+%Blau
 Gs.Edges.Weight(1) = 1;
 Gs.Edges.Weight(2) = 1;
 Gs.Edges.Weight(3) = 1;
 Gs.Edges.Weight(4) = 1;
 Gs.Edges.Weight(5) = 1;
 Gs.Edges.Weight(6) = 1;
-[Gs0,plotdataS0]=MeinungVerbreitenS(Gs,1,0.025); 
-Gs = digraph(Netzwerk);
-Gs.Nodes.Meinungen=MeinungenCopy;
-[Gs1,plotdataS1]=MeinungVerbreitenS(Gs,10,0.025);
-Gs = digraph(Netzwerk);
-Gs.Nodes.Meinungen=MeinungenCopy;
-[Gs2,plotdataS2]=MeinungVerbreitenS(Gs,10,0.025);
-Gs = digraph(Netzwerk);
-Gs.Nodes.Meinungen=MeinungenCopy;
-[Gs3,plotdataS3]=MeinungVerbreitenS(Gs,10,0.025);
-Gs = digraph(Netzwerk);
-Gs.Nodes.Meinungen=MeinungenCopy;
-[Gs4,plotdataS4]=MeinungVerbreitenS(Gs,10,0.025);
-Gs = digraph(Netzwerk);
-Gs.Nodes.Meinungen=MeinungenCopy;
-[Gs5,plotdataS5]=MeinungVerbreitenS(Gs,10,0.025);
-Gs = digraph(Netzwerk);
-Gs.Nodes.Meinungen=MeinungenCopy;
-[Gs6,plotdataS6]=MeinungVerbreitenS(Gs,10,0.025);
-Gs = digraph(Netzwerk);
-Gs.Nodes.Meinungen=MeinungenCopy;
-[Gs7,plotdataS7]=MeinungVerbreitenS(Gs,10,0.025);
-Gs = digraph(Netzwerk);
-Gs.Nodes.Meinungen=MeinungenCopy;
-[Gs8,plotdataS8]=MeinungVerbreitenS(Gs,10,0.025);
-Gs = digraph(Netzwerk);
-Gs.Nodes.Meinungen=MeinungenCopy;
-[Gs9,plotdataS9]=MeinungVerbreitenS(Gs,10,0.025);
+%Simulation der Daten 
+%WICHTIG für manche Beispiele muss in der Funktion MeinungVerbreitengS gewisser Code auskommentiert werden
+[Gs0,plotdataS0]=MeinungVerbreitenS(Gs,10,0); 
+[Gs1,plotdataS1]=MeinungVerbreitenS(Gs,10,0);
+[Gs2,plotdataS2]=MeinungVerbreitenS(Gs,10,0);
+[Gs3,plotdataS3]=MeinungVerbreitenS(Gs,10,0);
+[Gs4,plotdataS4]=MeinungVerbreitenS(Gs,10,0);
+[Gs5,plotdataS5]=MeinungVerbreitenS(Gs,10,0);
+[Gs6,plotdataS6]=MeinungVerbreitenS(Gs,10,0);
+[Gs7,plotdataS7]=MeinungVerbreitenS(Gs,10,0);
+[Gs8,plotdataS8]=MeinungVerbreitenS(Gs,10,0);
+[Gs9,plotdataS9]=MeinungVerbreitenS(Gs,10,0);
 average=(plotdataS0(:,end)+plotdataS1(:,end)+plotdataS2(:,end)+plotdataS3(:,end)+plotdataS4(:,end)+...
     plotdataS5(:,end)+plotdataS6(:,end)+plotdataS7(:,end)+plotdataS8(:,end)+plotdataS9(:,end))./10;
 %% 
