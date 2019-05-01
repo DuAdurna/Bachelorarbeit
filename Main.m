@@ -30,11 +30,11 @@ lamda2=lamda2(2);
 %% Testet deterministisches Modell 
 Gd = digraph(Netzwerk);
 Gd.Nodes.Meinungen=Meinungen;
-[Gd,plotdataD]=MeinungVerbreitenD(Gd,1,0,0,1);
+[Gd,plotdataD]=MeinungVerbreitenD(Gd,10,0,0,0.25,[-0.75,0.75]);
 %% Testet stochastisches Modell 
 Gs = digraph(Netzwerk);
 Gs.Nodes.Meinungen=Meinungen;
-[Gs,plotdataS]=MeinungVerbreitenS(Gs,10,0.025);
+[Gs,plotdataS]=MeinungVerbreitenS(Gs,5,0);
 %% Zeichnen und Einfärben des Graphen
 Zeichnung(Netzwerk, Meinungen, Gd, plotdataD, Gs, plotdataS);
 %% 10-facher Durschschnitt für Figur 9

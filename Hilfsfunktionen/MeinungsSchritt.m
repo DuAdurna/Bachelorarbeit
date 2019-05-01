@@ -1,4 +1,4 @@
-function [Meinungen_Neu] = MeinungsSchritt(Netzwerk,Selbsterhalt,schrittDauer)
+function [Meinungen_Neu] = MeinungsSchritt(Netzwerk,Selbsterhalt,schrittDauer,Vertrauensintervall)
 % MEINUNGVERBREITEN Iteriert die Simulation der Meinungsverbreitung einen Schritt weiter
 %   Input:  Netzwerk = Graph mit erweiterung Meinungen;
 %           Selbsterhaltung = Zahl zwischen 0 und 1 die den erhalt der
@@ -6,6 +6,8 @@ function [Meinungen_Neu] = MeinungsSchritt(Netzwerk,Selbsterhalt,schrittDauer)
 %           eigene Meinung nicht verändert wird
 %           schrittDauer = anteil einer zeiteinheit der simuliert werden
 %           soll
+%           Vertrauensintervall=Vektor mit dem 1, Eintrag die untere 
+%           Grenze und dem 2. die obere grenze 
 
 n=size(Netzwerk.Nodes,1);
 alpha=Selbsterhalt;
@@ -21,7 +23,10 @@ for i=1:n %für jede Kante wird der fremdeinfluss errechnet woraufhin eine meinun
         gewichtNorm=gewichtNorm+edges{einflussKanten(j),2};
     end 
     for j=1:size(einflussKanten,1)
-        aussenEinfluss=aussenEinfluss+edges{einflussKanten(j),2}/gewichtNorm*(Netzwerk.Nodes.Meinungen{edges{einflussKanten(j),1}(1)}-eigenMeinung);
+        Meinungsunterschied=Netzwerk.Nodes.Meinungen{edges{einflussKanten(j),1}(1)}-eigenMeinung;
+        if Meinungsunterschied>=Vertrauensintervall(1)&& Meinungsunterschied<=Vertrauensintervall(2)
+            aussenEinfluss=aussenEinfluss+edges{einflussKanten(j),2}/gewichtNorm*Meinungsunterschied;
+        end
     end
     %hier wird der Einfluss normiert und an Selbsterhalt & simulationsdauer
     %angepasst

@@ -1,4 +1,4 @@
-function [Meinungen_Neu,plotdata] = MeinungVerbreitenD(Netzwerk,Dauer,mutationsKoef,Selbsterhalt,Schrittdauer)
+function [Meinungen_Neu,plotdata] = MeinungVerbreitenD(Netzwerk,Dauer,mutationsKoef,Selbsterhalt,Schrittdauer,Vertrauensintervall)
 % MEINUNGVERBREITEN Iteriert die Simulation der Meinungsverbreitung einen Schritt weiter
 %   Input:  Netzwerk: Graph mit erweiterung Meinungen;
 %           Selbsterhalt: Zahl zwischen 0 und 1 die den erhalt der
@@ -22,7 +22,7 @@ for j=1:n
 end
 for i=1:floor(Dauer/Schrittdauer)
     %simulationsschritt gehen
-    NTemp=MeinungsSchritt(NTemp,Selbsterhalt,Schrittdauer);
+    NTemp=MeinungsSchritt(NTemp,Selbsterhalt,Schrittdauer,Vertrauensintervall);
     %plotdata erstellen
     for p=1:n
         plotdata(2,i+1)=plotdata(2,i+1)+(NTemp.Nodes.Meinungen{p})./n;
