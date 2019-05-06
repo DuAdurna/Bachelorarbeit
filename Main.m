@@ -30,16 +30,16 @@ lamda2=lamda2(2);
 %% Testet deterministisches Modell 
 Gd = digraph(Netzwerk);
 Gd.Nodes.Meinungen=Meinungen;
-[Gd,plotdataD]=MeinungVerbreitenD(Gd,10,0,0,0.25,[-0.75,0.75]);
+[Gd,plotdataD]=MeinungVerbreitenD(Gd,1,0,0,0.25,[-0.75,0.75]);
 %% Testet stochastisches Modell 
 Gs = digraph(Netzwerk);
 Gs.Nodes.Meinungen=Meinungen;
-[Gs,plotdataS]=MeinungVerbreitenS(Gs,5,0);
+[Gs,plotdataS]=MeinungVerbreitenS(Gs,1,0);
 %% Zeichnen und Einfärben des Graphen
 Zeichnung(Netzwerk, Meinungen, Gd, plotdataD, Gs, plotdataS);
 %% 10-facher Durschschnitt für Figur 9
 Bild9;Netzwerk=Figur9;
-load('./Data/MeinungenStart.mat');
+load('./Data/MeinungenFigur9.mat');
 Gs = digraph(Netzwerk);
 Gs.Nodes.Meinungen=MeinungenCopy;
 %Kanten der isolierten Blöcke zum absorbierenden hin
