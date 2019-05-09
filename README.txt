@@ -16,7 +16,7 @@ Diese Funktionenen sind:
     -varGraphMod ist eine Modifizierte version der vorherigen Funktion speziell für das Beispiel mit 2 kontrahierenden, isolierten Meinungen
     -Zeichung zeichnet anhand der Gegebenen Daten verschiedene Plots zu den Simulationen
     -ErstellungFig82 erstellt ähnlich zu der Figur 8.2 aus "deterministic versus stochastic consensus dynamics on graphs" einen Plot.
-
+    -BoundedConfidence errechnet din Beispiel mit bedingtem Vertrauen und visualisiert das Ergebnis.
 
 
 
