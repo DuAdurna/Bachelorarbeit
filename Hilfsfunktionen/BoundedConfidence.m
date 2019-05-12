@@ -1,6 +1,5 @@
 %% Errechnen der Daten
 clear;StrongConn;Netzwerk=StrCon;Meinungen=MeinungenSC; 
-n=size(Meinungen,1);
 Gd = digraph(Netzwerk);
 Gd.Nodes.Meinungen=Meinungen;
 [Gd,plotdataD]=MeinungVerbreitenD(Gd,50,0,0,1,[-0.5,0.5]);
